@@ -1,9 +1,10 @@
 function composeJSON() {
 	let obj = {}
 	let form = document.getElementById('form');
-	obj['seller'] = form[0].value;
-	obj['buyer'] = form[1].value;
-	obj['productId'] = form[2].value;
+	for (var i = 0; i < 3; i++) {
+		obj[form[i].id] = form[i].value;
+	}
+	console.log(form.length);
 	obj['transactionId'] = Math.floor(Math.random() * 256);
 
 	const passphrase = form[3].value;
