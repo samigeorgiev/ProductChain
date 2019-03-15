@@ -1,0 +1,4 @@
+
+======= ProductChain.sol:ProductChain =======
+Contract JSON ABI 
+[{"constant":false,"inputs":[{"name":"c_name","type":"string"},{"name":"c_origin","type":"string"},{"name":"pr_name","type":"string"},{"name":"pr_descr","type":"string"},{"name":"pr_id","type":"uint32"}],"name":"addProduct","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]
