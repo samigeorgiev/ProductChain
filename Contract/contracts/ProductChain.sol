@@ -21,16 +21,28 @@ contract ProductChain {
         Transaction[] transactions;
     }
     
+    mapping (int32 => Product) products;
+    
     constructor() public {
       
     }
     
-    function createProduct(string c_name, string c_origin, string pr_name, string pr_descr, int32 pr_id) {
-        Company company = Company( {name: c_name, origin: c_origin, p_key: msg.sender} );
-        Transaction transaction = Transaction( {datastamp: now} );
-        transaction.buyer = company;
-        Product product = Product( {name: pr_name, description: pr_descr, id: pr_id});
-        product.transactions.push(transaction);
+    function createProduct(string memory c_name, string memory c_origin, string memory pr_name, string memory pr_descr, int32 pr_id) public {
+        
+        Company memory cmp;
+        Transaction memory tr;
+        Product memory pr;
+        
+        cmp.name = c_name;
+        cmp.origin = c_origin;
+        cmp.p_key = msg.sender;
+        
+        tr.buyer = cmp;
+        tr.datastamp = now;
+        
+        pr.name = pr_name;
+        pr.description = pr_descr;
+        pr.id = pr_id;
     }
   
   
