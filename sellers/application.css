@@ -1,0 +1,18 @@
+html, body, #editor {
+  margin: 0;
+  height: 100%;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+}
+
+label {
+  display: block;
+}
+
+#information {
+  margin: 20px;
+}
+
+.fields {
+  margin: 10px auto;
+}

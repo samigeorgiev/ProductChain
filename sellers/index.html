@@ -2,18 +2,24 @@
 
 
 <body>
-    <div id="name">
+  <div id="information">
+    <div class="fields" id="name">
+      <label for="">Product name:</label>
       <input type = "text" :value="input" @input="update"></input>
     </div>
-    <div id="company">
+    <div class="fields" id="company">
+      <label for="">Producer:</label>
       <input type = "text" :value="input" @input="update"></input>
     </div>
-    <div id="origin">
+    <div class="fields" id="origin">
+      <label for="">Origin:</label>
       <input type = "text" :value="input" @input="update"></input>
     </div>
-    <div id="description">
+    <div class="fields" id="description">
+      <label for="">Description:</label>
       <textarea type = "text" :value="input" @input="update"></textarea>
     </div>
+  </div>
 </body>
 
 <head>
@@ -21,8 +27,7 @@
     <script src="https://unpkg.com/marked@0.3.6"></script>
     <script src="https://unpkg.com/lodash@4.16.0"></script>
     <script src="./vue.js"></script>
-
-
+    <link rel="stylesheet" href="./application.css">
 </head>
 
 
