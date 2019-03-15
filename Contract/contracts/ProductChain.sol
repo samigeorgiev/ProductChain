@@ -22,7 +22,7 @@ contract ProductChain {
     }
 
     mapping (uint32 => Product) products;
-    mapping (uint32 => Transaction[]) transactions;
+    mapping (uint32 => Transaction[10]) transactions;
 
     constructor() public {
 

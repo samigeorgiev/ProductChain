@@ -1,7 +1,9 @@
+var ProductChain = artifacts.require("./ProductChain.sol");
+
 contract('ProductChain', function(accounts) {
-  it("should assert true", function(done) {
-    var product_chain = ProductChain.deployed();
-    assert.isTrue(true);
-    done();
+  it("should create products", function() {
+    return ProductChain.deployed().then(function(contract) {
+        return contract.addProduct("Sami", "Sofia", "Person", "No", 1234);
+    });
   });
 });
