@@ -6,4 +6,12 @@ contract('ProductChain', function(accounts) {
         return contract.addProduct("Sami", "Sofia", "Person", "No", 1234);
     });
   });
+
+  it("should return info", function() {
+      return ProductChain.deployed().then(function(contract) {
+          return contract.getInformation();
+      }).then(function(result) {
+          assert.isTrue(result === "Sami");
+      });
+  });
 });
