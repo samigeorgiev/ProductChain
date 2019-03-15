@@ -11,10 +11,13 @@
 .header-img{
 	height: 20vw; 
 	width: 20vw;
+	border-style: inset;
 }
-.headerLIne{
+.headerLine{
 	display: block;
-	border-width: 5px;
+	border-width: 10px;
+	border-color: #4cad50;
+	border-style: solid;
 }
 .cameraButton{
 	margin-left: 30vw;
