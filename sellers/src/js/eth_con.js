@@ -16,6 +16,8 @@ function createContractObj(id) {
 
 function addProduct() {
 
+    getWeb3();
+
     let contract = createContractObj();
     let params = composeJSON();
 
