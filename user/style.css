@@ -19,19 +19,23 @@
 	border-color: #4cad50;
 	border-style: solid;
 }
-.cameraButton{
-	margin-left: 30vw;
-	margin-right: 50vw;
-	margin-top: 42vw;
+.cameraLabel{
+	background-color: red;
+	margin-top: 40%;
+	height: 5px;
+	width: 5px;
 }
-.qrImg{
-	margin-left: 5vw;
-	margin-right: 5vw;
-	margin-top: -60vw;
-	width: 40vw;
-	height: 40vw;
+#label{
+	height: 500px;
+	width:60%;
+	background-color: green;
+	margin-left: 20%;
+	margin-right:20%;
+	margin-top: 20%;
+	margin-bottom: 20%;
 }
-
-
+#qrImg{
+	
+}
 
 
