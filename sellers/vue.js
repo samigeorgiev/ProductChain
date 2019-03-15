@@ -1,12 +1,12 @@
 new Vue({
-  el: '#editor',
+  el: '#information',
   data: {
-    input: 
+    input: "write here..."
   },
   computed: {
 
   },
   methods: {
-
+      
   }
 })
