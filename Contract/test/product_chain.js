@@ -9,9 +9,9 @@ contract('ProductChain', function(accounts) {
 
   it("should return info", function() {
       return ProductChain.deployed().then(function(contract) {
-          return contract.getInformation();
+          return contract.getInformation(1234);
       }).then(function(result) {
-          assert.isTrue(result === "Sami");
+          assert.isTrue(result[0] === "Sami");
       });
   });
 });
