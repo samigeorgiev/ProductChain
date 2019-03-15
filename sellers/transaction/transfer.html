@@ -44,6 +44,12 @@
 									</div>
 								</div>
 
+								<div class="form-group">
+									<div class="input-group mb-2">
+										<input id="passphrase" type="text" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
+									</div>
+								</div>
+
 								<div class="text-center">
 									<input type="submit" onclick="composeJSON()" value="Transfer" class="btn btn-success btn-block rounded-0 py-2">
 								</div>
@@ -63,4 +69,5 @@
 	<script src="./main.js"></script>
 	<script src="./vue.js"></script>
 </head>
+
 </html>
