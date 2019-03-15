@@ -7,3 +7,14 @@ function composeJSON() {
 	// obj['transactionId'] = random
 	console.log(obj);
 }
+
+function qrCode() {
+	var qrcode = new QRCode("qrcode");
+
+	function makeCode() {
+		var url = null
+		qrcode.makeCode(url);
+	}
+
+	makeCode();
+}
