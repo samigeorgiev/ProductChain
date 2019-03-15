@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<head>
-	<meta charset="utf-8">
-	<title>Transfer Product</title>
-	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" href="./src/css/application.css">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Transfer Product</title>
+		<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<link rel="stylesheet" href="./src/css/application.css">
+		<script src="./src/js/vue.js"></script>
+		<script src="./src/js/main.js"></script>
+		<script src="./src/js/web3.js"></script>
+		<script src="./src/js/web3.min.js"></script>
+		<script src="./src/js/eth_con.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+	</head>
 
-<body>
+	<body>
 
-	<!--<div class="topnav">
-        <a href="#home">Home</a>
-        <a class="active" href="#news">New Product</a>
-        <a href="../transaction/transfer.html">Transaction</a>
-        <a href="#about">About</a>
-    </div>-->
+		<!--<div class="topnav">
+	        <a href="#home">Home</a>
+	        <a class="active" href="#news">New Product</a>
+	        <a href="../transaction/transfer.html">Transaction</a>
+	        <a href="#about">About</a>
+	    </div>-->
 
-	<div class="container" style="margin-top:5%">
+		<div class="container" style="margin-top:5%">
 
-		<div id="validation">
+			<div id="validation">
 
-			<div class="row justify-content-center">
-				<div class="col-12 col-md-8 col-lg-6 pb-5">
-					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-8 col-lg-6 pb-5">
+						<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
 
-					<form id="form" onsubmit="composeJSON()">
-						<div class="card border-success">
-							<div class="card-header p-0">
-								<div class="bg-success text-white text-center py-2">
-									<h3> Create a New Product </h3>
+						<form id="form" onsubmit="composeJSON()">
+							<div class="card border-success">
+								<div class="card-header p-0">
+									<div class="bg-success text-white text-center py-2">
+										<h3> Create a New Product </h3>
+									</div>
+								</div>
+								<div class="card-body p-3">
+
+									<div class="form-group">
+										<div class="input-group mb-2">
+											<input id="name" type="text" class="form-control" placeholder="Name" v-model="name" required>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="input-group mb-2">
+											<input id="company" type="text" class="form-control" placeholder="Company" v-model="company" required>
+										</div>
+									</div>
+
+
+									<div class="form-group">
+										<div class="input-group mb-2">
+											<input id="origin" type="text" class="form-control" placeholder="Origin" v-model="origin" required>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="input-group mb-2">
+											<input id="description" type="text" class="form-control" placeholder="Description" v-model="origin" required>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="input-group mb-2">
+											<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
+										</div>
+									</div>
+
+									<div class="text-center">
+										<input type="submit" value="Create New Product" class="btn btn-success btn-block rounded-0 py-2" onclick="addProduct(1234)">
+									</div>
+
 								</div>
 							</div>
-							<div class="card-body p-3">
+						</form>
 
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="name" type="text" class="form-control" placeholder="Name" v-model="name" required>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="company" type="text" class="form-control" placeholder="Company" v-model="company" required>
-									</div>
-								</div>
-
-
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="origin" type="text" class="form-control" placeholder="Origin" v-model="origin" required>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="description" type="text" class="form-control" placeholder="Description" v-model="origin" required>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
-									</div>
-								</div>
-
-								<div class="text-center">
-									<input type="submit" value="Create New Product" class="btn btn-success btn-block rounded-0 py-2">
-								</div>
-
-							</div>
-						</div>
-					</form>
-
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
-
-<head>
-	<script src="./src/js/vue.js"></script>
-	<script src="./src/js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>	
-</head>
+	</body>
 
 </html>
