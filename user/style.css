@@ -1,24 +1,41 @@
 .header{
-	height: 100px;
+	height: 90%;
 	width: 2000px;
 	text-align: center;
-	font-size: 100px;
+	font-size: 10vw;
 	color: black;
 	font-family: bookmark;
 }
+.header-img{
+	height: 20vw; 
+	width: 20vw;
+}
 .headBorder{
 	border-style: solid;
-	border-width: 30px;
+	border-width: 5vw;
 	border-color: black;
-	height: 50px;
+	height: 2vw;
+	width: 100vw;
 }
-.cameraLabel{
-	margin-top: 40px;
-	margin-left: 200px;
+.cameraButton{
+	margin-left: 30vw;
+	margin-right: 50vw;
+	margin-top: 42vw;
 }
 .cameraOuterLabel{
-	margin-top: 100px;
-	width: 800px;
+	background-color: #33bd00;
+	margin-left: 15vw;
+	margin-right: 15vw;
+	margin-top: 20vw;
+	width: 70vw;
+	height: 50vw;
+}
+.qrImg{
+	margin-left: 5vw;
+	margin-right: 5vw;
+	margin-top: -60vw;
+	width: 40vw;
+	height: 40vw;
 }
 
 
