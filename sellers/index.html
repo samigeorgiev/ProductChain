@@ -1,17 +1,29 @@
 <html>
 
+
 <body>
-    <div id="editor">
-      <textarea :value="input" @input="update"></textarea>
-      <div v-html="compiledMarkdown"></div>
+    <div id="name">
+      <input type = "text" :value="input" @input="update"></input>
+    </div>
+    <div id="company">
+      <input type = "text" :value="input" @input="update"></input>
+    </div>
+    <div id="origin">
+      <input type = "text" :value="input" @input="update"></input>
+    </div>
+    <div id="description">
+      <textarea type = "text" :value="input" @input="update"></textarea>
     </div>
 </body>
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
     <script src="https://unpkg.com/marked@0.3.6"></script>
     <script src="https://unpkg.com/lodash@4.16.0"></script>
     <script src="./vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+
 
 </head>
+
+
 </html>
