@@ -11,13 +11,23 @@ new Vue({
 
 	methods: {
 		sellerFocus: function() {
-			this.seller = ''
+			this.seller = '';
 		},
 		buyerFocus: function() {
-			this.buyer = ''
+			this.buyer = '';
 		},
 		productFocus: function() {
-			productId = ''
+			this.productId = '';
+		},
+
+		sellerFocusOut: function() {
+			this.seller = this.seller_default;
+		},
+		buyerFocusOut: function() {
+			this.buyer = this.buyer_default;
+		},
+		productFocusOut: function() {
+			this.productId = this.productId_default;
 		},
 	}
 
