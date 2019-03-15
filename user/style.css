@@ -1,0 +1,17 @@
+.header{
+	height: 100px;
+	width: 2000px;
+	text-align: center;
+	font-size: 120px;
+	color: black;
+}
+.headBorder{
+	border-style: solid;
+	border-width: 30px;
+	border-color: black;
+	height: 50px;
+}
+
+
+
+
