@@ -2,6 +2,9 @@
 <head>
   <meta charset="utf-8">
   <title>ProductChain</title>
+  <script src='../sellers/src/js/eth_con.js'></script>
+  <script src='../sellers/src/js/web3.js'></script>
+  <script src='../sellers/src/js/web3.min.js'></script>
   <script src="./src/camera/jsQR.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <link href="./src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +34,8 @@
             </div>
       </nav>
         <div id="outputData"></div>
+        <hr style="border-width: 2vw;color: #18bc9c">
+        <div id="outputTrans"><div>
     </div>
 
   </div>
@@ -71,12 +76,14 @@
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        /*var code = jsQR(imageData.data, imageData.width, imageData.height, {
+        var result = getInfo(123);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
-        */
+        //console.log(result);
+        
         //code = 'something';
-        code = [ "Armani shirt", "This is shiffdsdjlfksdfjsdlkfjsdflksdjflsdkjfsdlkfjsdlkfjsdlfkrt", "It is a keyggffghfghfghfgh", "Armani", "EA7"];
+        
         //console.log(code.pName);
         if (code) {
           outputMessage.hidden = true;
