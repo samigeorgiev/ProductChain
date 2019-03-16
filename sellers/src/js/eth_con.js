@@ -42,11 +42,11 @@ function makeQrCode(code) {
 
 function addProduct() {
 
-    // let id = Math.floor(Math.random() * 100000000) + 1;
+    let id = Math.floor(Math.random() * 100000000) + 1;
 
-    let id = 123;
+    console.log(id);
 
-    // Funkciq na Marti
+    // let id = 123;
 
     let contract = createContractObj();
     let params = createComposeJSON();
