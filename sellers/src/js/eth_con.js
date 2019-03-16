@@ -131,7 +131,7 @@ function buyProduct(params) {
 
     let contract = createContractObj();
 
-    contract.buyProduct.sendTransaction(params.productId, params.transactionId, params.company, params.origin, { from: web3.eth.coinbase }, function() {
+    contract.buyProduct.sendTransaction(params.productId, params.transactionId, params.company, params.origin, { from: web3.eth.coinbase }, function(error, result) {
         if (error) { console.log('error'); }
         else { console.log('success'); }
     });
