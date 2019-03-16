@@ -128,11 +128,11 @@ function sellProduct(pr_id, tr_id) {
     })
 }
 
-function buyProduct() {
+function buyProduct(params) {
 
     let contract = createContractObj();
 
-    contract.buyProduct.sendTransaction( { from: web3.eth.coinbase }, function() {
+    contract.buyProduct.sendTransaction(params.productId, params.transactionId, params.company, params.origin, { from: web3.eth.coinbase }, function() {
         if (error) { console.log('error'); }
         else { console.log('success'); }
     });
@@ -154,7 +154,7 @@ function getInfo(id, callback) {
     if(!contract){
         return callback(undefined, localResult);
     }
-    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, callback()); 
+    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, callback());
 
     //    function(error, result) {
     //    if (error) { console.log('error'); }
