@@ -9,9 +9,11 @@
 	<link rel="stylesheet" href="./src/css/style.css">
 	<title>Bootstrap Example</title>
 	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
 </head>
 
 <body>
@@ -31,8 +33,8 @@
 							</div>
 						</div>
 						<ul class="nav nav-tabs">
-							<li class="active" v-on:click="scan=false;"><a data-toggle="tab">Text</a></li>
-							<li v-on:click="scan=true;"><a data-toggle="tab">Scan QR</a></li>
+							<li class="active" v-on:click="scan=true;"><a data-toggle="tab">Scan QR</a></li>
+							<li v-on:click="scan=false;"><a data-toggle="tab">Text</a></li>
 						</ul>
 
 						<div id="text-entry" v-if="!scan">
@@ -44,17 +46,17 @@
 							</div>
 
 							<div class="text-center">
-								<input type="submit" value="Transfer" v-on:submit="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
+								<input type="submit" value="Transfer" v-on:click="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
 							</div>
 						</div>
 						<div class="qr" v-if="scan">
 							<!-- QR camera -->
-							<canvas id="canvas"></canvas>
+							<canvas id="canvas" hidden></canvas>
 						  <div id="output" hidden>
 						    <div id="outputMessage">No QR code detected.</div>
-						    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+						    <div id="transactionQR" hidden></div>
 						  </div>
-							
+
 						</div>
 
 					</div>
@@ -64,13 +66,12 @@
 		</div>
 	</div>
 	</div>
+	<script src="./src/js/main.js"></script>
 </body>
 
 <head>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
-	<script src="./src/js/main.js"></script>
 	<script src="./src/js/jsQR.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 
 </html>

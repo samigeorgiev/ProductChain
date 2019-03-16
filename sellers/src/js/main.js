@@ -2,7 +2,7 @@ new Vue({
 	el: '#form',
 	data: {
 		notSubmitted: true,
-		scan: false,
+		scan: true,
 
 		//company: "Company Name",
 		//company_default: "Company Name",
@@ -37,13 +37,9 @@ new Vue({
 		transfer: function() {
 			composeJSON();
 			composeQR();
-			notSubmitted = false;
-		},
+			this.notSubmitted = false;
+		}
 
-        // create: function() {
-        //     createComposeJSON();
-        //     notSubmitted = false;
-        // }
 	}
 
 })
@@ -76,7 +72,7 @@ function createComposeJSON() {
 	console.log(obj);
 }
 
-function qrCode() {
+function makeQrCode() {
 	var qrcode = new QRCode("qrcode");
 
 	function makeCode() {
@@ -108,7 +104,6 @@ function hexToStr(hex) {
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
-var loadingMessage = document.getElementById("loadingMessage");
 var outputContainer = document.getElementById("output");
 var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
@@ -131,9 +126,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).th
 });
 
 function tick() {
-	loadingMessage.innerText = "⌛ Loading video..."
 	if (video.readyState === video.HAVE_ENOUGH_DATA) {
-		loadingMessage.hidden = true;
 		canvasElement.hidden = false;
 		outputContainer.hidden = false;
 

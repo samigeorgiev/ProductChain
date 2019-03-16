@@ -16,10 +16,10 @@ function createContractObj() {
     return contract.at(ADDRESS);
 }
 
-function addProduct(id) {
+function addProduct(params, id) {
 
     let contract = createContractObj();
-    let params = composeJSON();
+    // let params = composeJSON();
 
     contract.addProduct.sendTransaction(params.company, params.origin, params.name, params.description, id, { from: web3.eth.coinbase }, function(error, result) {
         if (error) { console.log('error'); }
@@ -47,9 +47,12 @@ function buyProduct() {
     });
 }
 
-function getInfo() {
+function getInfo(id) {
 
     let contract = createContractObj();
 
-    contract.getInfo.call();
+    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, function(error, result) {
+        if (error) { console.log('error'); }
+        else { console.log(result); }
+    });
 }
