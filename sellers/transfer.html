@@ -6,6 +6,7 @@
 	<title>Transfer Product</title>
 	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="./src/css/application.css">
+	<link rel="stylesheet" href="./src/css/style.css">
 	<title>Bootstrap Example</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,8 +47,13 @@
 								<input type="submit" value="Transfer" v-on:submit="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
 							</div>
 						</div>
-						<div class="qr">
+						<div class="qr" v-if="scan">
 							<!-- QR camera -->
+							<canvas id="canvas"></canvas>
+						  <div id="output" hidden>
+						    <div id="outputMessage">No QR code detected.</div>
+						    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+						  </div>
 							
 						</div>
 
