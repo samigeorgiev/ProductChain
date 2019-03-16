@@ -1,25 +1,21 @@
 new Vue({
 	el: '#form',
 	data: {
-		seller: "Seller Company",
-		seller_default: "Seller Company",
+		notSubmitted: true,
+		scan: false,
 
-		buyer: "Buyer Company",
-		buyer_default: "Buyer Company",
+		company: "Company Name",
+		company_default: "Company Name",
 
 		productId: "Product ID",
 		productId_default: "Product ID",
-
 		passphrase: "Passphrase",
 		passphrase_default: "Passphrase",
 	},
 
 	methods: {
-		sellerFocus: function() {
-			this.seller = '';
-		},
-		buyerFocus: function() {
-			this.buyer = '';
+		companyFocus: function() {
+			this.company = '';
 		},
 		productFocus: function() {
 			this.productId = '';
@@ -28,11 +24,8 @@ new Vue({
 			this.passphrase = '';
 		},
 
-		sellerFocusOut: function() {
-			this.seller = this.seller_default;
-		},
-		buyerFocusOut: function() {
-			this.buyer = this.buyer_default;
+		companyFocusOut: function() {
+			this.company = this.company_default;
 		},
 		productFocusOut: function() {
 			this.productId = this.productId_default;

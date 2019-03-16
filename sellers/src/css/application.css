@@ -5,3 +5,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.form-group {
+	margin: 5% 2%;
+}
