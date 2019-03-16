@@ -96,7 +96,7 @@ function composeJSON(prodId) {
 function createComposeJSON() {
 	let obj = {}
 	let name = document.getElementById('name').value;
-	let company = document.getElementById('seller').value;
+	let company = document.getElementById('company').value;
 	let origin = document.getElementById('origin').value;
 	let description = document.getElementById('description').value;
 
