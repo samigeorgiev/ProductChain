@@ -35,7 +35,6 @@ new Vue({
 		},
 
 		transfer: function() {
-			composeJSON();
 			makeQrCode(null);
 			this.notSubmitted = false;
 		}
@@ -62,6 +61,8 @@ function composeJSON(prodId) {
 
 	document.getElementById('canvas').	hidden = true;
 	console.log(obj);
+
+	sellProduct(obj.productId, obj.transactionId);
 }
 
 function createComposeJSON() {
