@@ -116,7 +116,7 @@ navigator.mediaDevices.getUserMedia({
 function tick() {
 	if (video.readyState === video.HAVE_ENOUGH_DATA) {
 		canvasElement.hidden = false;
-		// outputContainer.hidden = false;
+		outputContainer.hidden = false;
 
 		canvasElement.height = video.videoHeight;
 		canvasElement.width = video.videoWidth;
@@ -133,10 +133,10 @@ function tick() {
 			outputMessage.hidden = true;
 			canvasElement.hidden = true;
 			setTransfer(code.data);
-			console.log(code.data);
 			return;
+		} else {
+			outputMessage.hidden = false;
 		}
-
 	}
 	requestAnimationFrame(tick);
 }
