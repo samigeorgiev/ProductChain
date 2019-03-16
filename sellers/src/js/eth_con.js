@@ -8,7 +8,7 @@ function getWeb3() {
     else { console.log('Metamask not found'); }
 }
 
-function createContractObj(id) {
+function createContractObj() {
 
     getWeb3();
 
@@ -16,13 +16,40 @@ function createContractObj(id) {
     return contract.at(ADDRESS);
 }
 
-function addProduct() {
+function addProduct(id) {
 
     let contract = createContractObj();
     let params = composeJSON();
 
-    contract.addProduct.sendTransaction(params.company, params.origin, params.name, params.description, { from: web3.eth.coinbase }, function(error, result) {
-        if(error) { console.log('error'); }
+    contract.addProduct.sendTransaction(params.company, params.origin, params.name, params.description, id, { from: web3.eth.coinbase }, function(error, result) {
+        if (error) { console.log('error'); }
         else { console.log('success'); }
     });
+}
+
+function sellProduct(pr_id, tr_td) {
+
+    let contract = createContractObj();
+
+    contract.sellProduct.sendTransaction(pr_id, tr_id, { from: web3.eth.coinbase }, function(error, result) {
+        if (error) { console.log('error'); }
+        else {console.log('success'); }
+    })
+}
+
+function buyProduct() {
+
+    let contract = createContractObj();
+
+    contract.buyProduct.sendTransaction( { from: web3.eth.coinbase }, function() {
+        if (error) { console.log('error'); }
+        else { console.log('success'); }
+    });
+}
+
+function getInfo() {
+
+    let contract = createContractObj();
+
+    contract.getInfo.call();
 }
