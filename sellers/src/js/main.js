@@ -60,6 +60,7 @@ function composeJSON(prodId) {
 	let code = obj['productId'] + '.' + obj['transactionId'];
 	makeQrCode(code);
 
+	document.getElementById('canvas').	hidden = true;
 	console.log(obj);
 }
 
