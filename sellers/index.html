@@ -7,7 +7,6 @@
 		<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<link rel="stylesheet" href="./src/css/application.css">
 		<!--<script src="./src/js/vue.js"></script>-->
-		<script src="./src/js/main.js"></script>
 		<script src="./src/js/web3.js"></script>
 		<script src="./src/js/web3.min.js"></script>
 		<script src="./src/js/eth_con.js"></script>
@@ -41,26 +40,26 @@
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="name" type="text" class="form-control" placeholder="Product Name" required>
+											<input id="company" type="text" class="form-control" :placeholder="productName" v-on:focus="productNameFocus" v-on:focusout="productNameFocusOut" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="seller" type="text" class="form-control" placeholder="Company name" required>
+											<input id="company" type="text" class="form-control" :placeholder="company" v-on:focus="companyFocus" v-on:focusout="companyFocusOut" required>
 										</div>
 									</div>
 
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="origin" type="text" class="form-control" placeholder="Origin" required>
+											<input id="origin" type="text" class="form-control" :placeholder="origin" v-on:focus="originFocus" v-on:focusout="originFocusOut" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="description" type="text" class="form-control" placeholder="Description" required>
+											<input id="description" type="text" class="form-control" :placeholder="description" v-on:focus="descriptionFocus" v-on:focusout="descriptionFocusOut" required>
 										</div>
 									</div>
 
@@ -87,7 +86,6 @@
 
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
-	<!--<script src="./src/js/vue.js"></script>-->
 	<script src="./src/js/main.js"></script>
 </head>
 

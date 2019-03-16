@@ -1,76 +1,43 @@
-new Vue({
+let root = new Vue({
 	el: '#form',
 	data: {
-		notSubmitted: true,
 		scan: true,
-
-		//company: "Company Name",
-		//company_default: "Company Name",
-
-		productId: "Product ID",
-		productId_default: "Product ID",
-		productName: "Product Name",
-		productName_default: "Product Name",
-		passphrase: "Passphrase",
-		passphrase_default: "Passphrase",
+		completed: false,
 		company: "Company Name",
 		company_default: "Company Name",
 		origin: "Origin",
 		origin_default: "Origin",
-		description: "Description",
-		description_default: "Description",
 	},
-
 	methods: {
 		companyFocus: function() {
 			this.company = '';
 		},
-		productFocus: function() {
-			this.productId = '';
-		},
-		passphraseFocus: function() {
-			this.passphrase = '';
-		},
 		originFocus: function() {
 			this.origin = '';
-		},
-		productNameFocus: function() {
-			this.productName = '';
-		},
-		descriptionFocus: function() {
-			this.description = '';
 		},
 
 		companyFocusOut: function() {
 			this.company = this.company_default;
 		},
-		productFocusOut: function() {
-			this.productId = this.productId_default;
-		},
-		passphraseFocusOut: function() {
-			this.passphrase = this.passphrase_default;
-		},
 		originFocusOut: function() {
 			this.origin = this.origin_default;
 		},
-		productNameFocusOut: function() {
-			this.productName = this.productName_default;
-		},
-		descriptionFocusOut: function() {
-			this.description = this.description_default;
-		},
 
 		transfer: function() {
-			composeJSON(null);
-			this.notSubmitted = false;
+			obj['company'] = document.getElementById('company').value;
+			obj['origin'] = document.getElementById('origin').value;
+			this.completed = true;
+			console.log(obj);
+			// Samkata's functions!
 		}
 
 	}
 
 })
 
+
+var obj = {}
 function composeJSON(prodId) {
-	let obj = {}
 	if (prodId == null) {
 		let productId = document.getElementById('productId').value;
 		document.getElementById('text-entry').hidden = true;
@@ -93,46 +60,17 @@ function composeJSON(prodId) {
 	sellProduct(obj.productId, obj.transactionId);
 }
 
-function createComposeJSON() {
-	let obj = {}
-	let name = document.getElementById('name').value;
-	let company = document.getElementById('seller').value;
-	let origin = document.getElementById('origin').value;
-	let description = document.getElementById('description').value;
-
-	obj['name'] = name;
-	obj['company'] = company;
-	obj['origin'] = origin;
-	obj['description'] = description;
-
-	console.log(obj);
-
-	return obj;
+function setTransfer(code) {
+	let ids = code.split('.');
+	obj['productId'] = ids[0];
+	obj['transactionId'] = ids[1];
+	root.scan = false;
 }
 
-function makeQrCode(code) {
-	let div = document.getElementById('qrcode');
-	let text = document.getElementById('text-entry')
-	let qr = document.getElementsByClassName('qr');
-
-	var qrcode = new QRCode("qrcode");
-
-	try {
-		qr[0].hidden = true;
-		text.hidden = true;
-	} catch (e) {
-
-	} finally {
-
-		div.hidden = false;
-	}
-
-	function makeCode() {
-		qrcode.makeCode(code);
-	}
-
-	makeCode();
+function markSold() {
+    root.scan = false;
 }
+
 
 function strToHex(str) {
 	var hex = '';
@@ -199,8 +137,10 @@ function tick() {
 			drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 			outputMessage.hidden = true;
 			canvasElement.hidden = true;
-			composeJSON(code.data);
-			return;
+			//setTransfer(code.data);
+            console.log(code.data);
+            markSold();
+			return code.data;
 		} else {
 			outputMessage.hidden = false;
 		}
