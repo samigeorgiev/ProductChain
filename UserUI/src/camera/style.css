@@ -29,17 +29,27 @@ h1 {
 }
 
 #output {
-  margin-top: 20px;
+  margin-top: 15%;
   background: #eee;
   padding: 10px;
   padding-bottom: 0;
 }
 
 #output div {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   word-wrap: break-word;
 }
 
 #noQRFound {
   text-align: center;
+}
+.props{
+  margin-top: 20px;
+}
+#outputData{
+  font-size: 4vw;
+  font-family: "impact";
+  text-align: left;
+  background-color: #18bc9c;
+  border-color: #18bc9c;
 }
