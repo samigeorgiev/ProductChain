@@ -26,7 +26,7 @@
   <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden></canvas>
   <div style="background-color: #18bc9c" id="output" hidden>
-    <div id="outputMessage">No QR code detected.</div>
+    <div id="outputMessage">SCAN YOUR CODE</div>
   
     <div style="background-color: #18bc9c" hidden>
       <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -99,11 +99,15 @@
         
         //console.log(code.pName);
         function printRes(result){
-          var sold="not sold";
-          if(result[9]===true){
-            sold="sold!";
+
+
+          var sold="Not sold";
+          if(result[9] === true){
+            sold="Sold!";
           }
-          outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Producer: " + hexToStr(result[2]) +'\n' + 'Origin: ' + hexToStr(result[3]) +'\n'+ 'Public Key: ' + result[4] + '\n' + sold; 
+          
+          var soldString = "<span style=''>" + sold + "</span>";
+          outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Producer: " + hexToStr(result[2]) +'\n' + 'Origin: ' + hexToStr(result[3]) +'\n'+ 'Public Key: ' + result[4] + '\n' + 'Product status:' + sold; 
         }
         if (code) {
           outputMessage.hidden = true;
