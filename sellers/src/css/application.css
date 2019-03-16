@@ -17,3 +17,8 @@ body {
 #greet {
 	text-align: center;
 }
+
+canvas {
+	margin: 1%;
+	border-radius: 5%;
+}

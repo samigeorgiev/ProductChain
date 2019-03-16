@@ -49,6 +49,7 @@ h1 {
 #outputMessage{
   text-align: center;
   font-size: 5vw;
+  color: #294166;
 }
 #outputData{
   font-size: 4vw;

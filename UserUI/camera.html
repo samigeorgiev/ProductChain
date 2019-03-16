@@ -26,7 +26,7 @@
   <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden></canvas>
   <div style="background-color: #18bc9c" id="output" hidden>
-    <div id="outputMessage">SCAN YOUR CODE</div>
+    <div class="h1" id="outputMessage">SCAN YOUR CODE</div>
   
     <div style="background-color: #18bc9c" hidden>
       <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -36,8 +36,41 @@
         </div>
             </div>
       </nav>
-        <div id="outputData"></div>
-        <hr style="border-width: 2vw;color: #18bc9c">
+       <div id="outputData"></div>
+        <table class="table table-dark">
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Product Name</td>
+      <td id='productName'></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Description</td>
+      <td id='productDesc'></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Producer</td>
+      <td id='productProducer'></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Origin</td>
+      <td id='productOrigin'></td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Public Key</td>
+      <td id='productPK'></td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Product Status</td>
+      <td id='productStatus'></td>
+    </tr>
+  </tbody>
+</table>
         <div id="outputTrans"></div>
     </div>
 
@@ -51,14 +84,12 @@
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
 
-    function drawLine(begin, end, color) {
-      canvas.beginPath();
-      canvas.moveTo(begin.x, begin.y);
-      canvas.lineTo(end.x, end.y);
-      canvas.lineWidth = 4;
-      canvas.strokeStyle = color;
-      canvas.stroke();
-    }
+    var productName = document.getElementById('productName');
+    var productDesc = document.getElementById('productDesc');
+    var productProducer = document.getElementById('productProducer');
+    var productOrigin = document.getElementById('productOrigin');
+    var productPK = document.getElementById('productPK');
+    var productStatus = document.getElementById('productStatus');
 
     // Use facingMode: environment to attemt to get the front camera on phones
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
@@ -106,9 +137,17 @@
             sold="Sold!";
           }
           
-          var soldString = "<span style=''>" + sold + "</span>";
-          outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Producer: " + hexToStr(result[2]) +'\n' + 'Origin: ' + hexToStr(result[3]) +'\n'+ 'Public Key: ' + result[4] + '\n' + 'Product status:' + sold; 
-        }
+         /* outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Producer: " + hexToStr(result[2]) +'\n' + 'Origin: ' + hexToStr(result[3]) +'\n'+ 'Public Key: ' + result[4] + '\n' + 'Product status:' + sold; 
+        */
+
+        productName.innerText = hexToStr(result[0]);
+        productDesc.innerText = hexToStr(result[1]);
+        productProducer.innerText = hexToStr(result[2]);
+        productOrigin.innerText = hexToStr(result[3]);
+        productPK.innerText = result[4];
+        productStatus.innerText = sold;
+      }
+
         if (code) {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
