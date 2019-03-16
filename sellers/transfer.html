@@ -18,8 +18,7 @@
 				<div class="col-12 col-md-8 col-lg-6 pb-5">
 					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
 
-					<form id="form" onsubmit="composeJSON()" action="./confirm.html">
-						<div class="card border-success">
+						<div id="form" class="card border-success">
 							<div class="card-header p-0">
 								<div class="bg-success text-white text-center py-2">
 									<h3> Transaction </h3>
@@ -33,12 +32,11 @@
 								</div>
 
 								<div class="text-center">
-									<input type="submit" value="Transfer" class="btn btn-success btn-block rounded-0 py-2" on>
+									<input type="submit" value="Transfer" v-on:submit="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
 								</div>
 
 							</div>
 						</div>
-					</form>
 
 				</div>
 			</div>
@@ -49,7 +47,6 @@
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
 	<script src="./src/js/main.js"></script>
-	<script src="./src/js/vue.js"></script>
 </head>
 
 </html>
