@@ -1,0 +1,1 @@
+This folder holds the initial code for the camera for easier understanding, since it is used in several scenarios. 
