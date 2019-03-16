@@ -87,7 +87,6 @@
           // body...
           // result 
         });
-        console.log(result);
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
@@ -99,7 +98,7 @@
         function printRes(result){
           outputData.innerText = "Product Name: " + result[0] + '\n' + "Description: " + result[1] + '\n\n' + "Public Key: " + result[2] +'\n' + 'Producer: ' + result[3] +'\n'+ 'Origin: ' +result[4];
         }
-        if (result) {
+        if (code) {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           canvasElement.hidden = true;
