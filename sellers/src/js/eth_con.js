@@ -16,10 +16,15 @@ function createContractObj() {
     return contract.at(ADDRESS);
 }
 
-function addProduct(params, id) {
+function addProduct() {
+
+    let id = Math.floor(Math.random() * 100000000) + 1;
+
+    // Funkciq na Marti
+    console.log('id='id);
 
     let contract = createContractObj();
-    // let params = composeJSON();
+    let params = createComposeJSON();
 
     contract.addProduct.sendTransaction(params.company, params.origin, params.name, params.description, id, { from: web3.eth.coinbase }, function(error, result) {
         if (error) { console.log('error'); }
