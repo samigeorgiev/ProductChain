@@ -48,26 +48,26 @@
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="company" type="text" class="form-control" placeholder="Company" v-model="company" required>
+											<input id="company" type="text" class="form-control" :placeholder="seller" v-on:focus="sellerFocus" v-on:focusout="sellerFocus" v-model="company" required>
 										</div>
 									</div>
 
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="origin" type="text" class="form-control" placeholder="Origin" v-model="origin" required>
+											<input id="origin" type="text" class="form-control" :placeholder="origin" v-on:focus="originFocus" v-on:focusout="originFocus" v-model="origin" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="description" type="text" class="form-control" placeholder="Description" v-model="origin" required>
+											<input id="description" type="text" class="form-control" :placeholder="description" v-on:focus="descriptionFocus" v-on:focusout="descriptionFocus" v-model="origin" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
+											<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocus" required>
 										</div>
 									</div>
 
