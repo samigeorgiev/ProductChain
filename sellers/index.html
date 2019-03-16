@@ -61,7 +61,7 @@
 
 								<div class="form-group">
 									<div class="input-group mb-2">
-										<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
+										<input id="passphrase" type="password" class="form-control" name="passphrase" placeholder="{{ passphrase }}" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocusOut" required>
 									</div>
 								</div>
 
@@ -80,9 +80,9 @@
 </body>
 
 <head>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
 	<script src="./src/js/vue.js"></script>
 	<script src="./src/js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>	
 </head>
 
 </html>
