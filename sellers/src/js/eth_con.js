@@ -47,11 +47,11 @@ function buyProduct() {
     });
 }
 
-function getInfo() {
+function getInfo(id) {
 
     let contract = createContractObj();
 
-    contract.getInformation.call( { from: web3.eth.coinbase }, web3.eth.defaultBlock, function(error, result) {
+    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, function(error, result) {
         if (error) { console.log('error'); }
         else { console.log(result); }
     });
