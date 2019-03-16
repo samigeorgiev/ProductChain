@@ -57,6 +57,9 @@ function composeJSON(prodId) {
 	obj['transactionId'] = Math.floor(Math.random() * 256);
 
 	let code = obj['productId'] + '.' + obj['transactionId'];
+
+	console.log(code);
+
 	makeQrCode(code);
 
 	document.getElementById('canvas').	hidden = true;
