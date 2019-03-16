@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <title>ProductChain</title>
   <script src='../sellers/src/js/eth_con.js'></script>
+  <script src='../sellers/src/js/main.js'></script>
   <script src='../sellers/src/js/web3.js'></script>
   <script src='../sellers/src/js/web3.min.js'></script>
   <script src="./src/camera/jsQR.js"></script>
@@ -20,6 +21,8 @@
   <link href="./src/css/freelancer.min.css" rel="stylesheet">
 </head>
 <body style="background: #18bc9c">
+
+
   <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden></canvas>
   <div style="background-color: #18bc9c" id="output" hidden>
@@ -35,7 +38,7 @@
       </nav>
         <div id="outputData"></div>
         <hr style="border-width: 2vw;color: #18bc9c">
-        <div id="outputTrans"><div>
+        <div id="outputTrans"></div>
     </div>
 
   </div>
@@ -76,7 +79,7 @@
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var result = getInfo(123, function (error, result) {
+        var result = getInfo(1122, function (error, result) {
           if(error){
             console.error("error");
           }
@@ -87,7 +90,6 @@
           // body...
           // result 
         });
-        console.log(result);
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
@@ -97,9 +99,9 @@
         
         //console.log(code.pName);
         function printRes(result){
-          outputData.innerText = "Product Name: " + result[0] + '\n' + "Description: " + result[1] + '\n\n' + "Public Key: " + result[2] +'\n' + 'Producer: ' + result[3] +'\n'+ 'Origin: ' +result[4];
+          outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Public Key: " + hexToStr(result[2]) +'\n' + 'Producer: ' + hexToStr(result[3]) +'\n'+ 'Origin: ' + hexToStr(result[4]);
         }
-        if (result) {
+        if (code) {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           canvasElement.hidden = true;
