@@ -10,13 +10,13 @@ function getWeb3() {
 
 function createContractObj(id) {
 
+    getWeb3();
+
     let contract = web3.eth.contract(JSON.parse(ABI));
     return contract.at(ADDRESS);
 }
 
 function addProduct() {
-
-    getWeb3();
 
     let contract = createContractObj();
     let params = composeJSON();
