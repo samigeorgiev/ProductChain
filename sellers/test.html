@@ -10,9 +10,9 @@
     <body>
     <script>
 
-    function gen() {
+    function gen(key) {
         var icon = blockies.create({ // All options are optional
-        seed: '0x95c35036aaF96115C580B8A5C54ef51e47EE6fC3', // seed used to generate icon data, default: random
+        seed: key, // seed used to generate icon data, default: random
         color: '#00cc00', // to manually specify the icon color, default: random
         bgcolor: '#ffcc00', // choose a different background color, default: random
         // size: 15, // width/height of the icon in blocks, default: 8
@@ -21,11 +21,11 @@
         // default: random. Set to -1 to disable it. These "spots" create structures
         // that look like eyes, mouths and noses.
         });
-        document.body.appendChild(icon); // icon is a canvas element
+        return icon; // icon is a canvas element
     }
 
     </script>
 
-    <button type="button" value="b" onclick="gen()">Click</button>
+    <button type="button" value="b" onclick="gen('0x95c35036aaf96115c580b8a5c54ef51e47ee6fc3')">Click</button>
     </body>
 </html>

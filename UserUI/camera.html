@@ -6,7 +6,9 @@
   <script src='../sellers/src/js/main.js'></script>
   <script src='../sellers/src/js/web3.js'></script>
   <script src='../sellers/src/js/web3.min.js'></script>
+  <script src="../sellers/src/js/blockies.min.js"></script>
   <script src="./src/camera/jsQR.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <link href="./src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./src/camera/style.css">
@@ -128,9 +130,16 @@
 
         	var generatedTable = generateTable(result);
 
-        	console.log(generatedTable);
         	outputDiv.innerHTML = generatedTable;
+        	//outputDiv.appendChild(gen('0x95c35036aaf96115c580b8a5c54ef51e47ee6fc3'));
 
+        	var i = 0;
+        	while(result[6][i] != 0) {
+    			let current_row = document.getElementById(i);
+    			current_row.innerText = '';
+    			current_row.appendChild(gen(result[8][i]));
+    			i++;  
+    		}
 
         	var sold="Not sold";
         	if(result[9] === true){
@@ -175,9 +184,11 @@
       requestAnimationFrame(tick);
     }
 
-    function generateRow(pic, owner, address) {
+    //-------------------------------------------------
+
+    function generateRow(id, owner, address) {
     	let result =  "<tr>" +
-			"<th scope='row'>" + pic + "</th>" +
+			"<th scope='row' id='" + id +"'>Key pic</th>" +
 			"<td>" + owner + "</td>" +
 			"<td>" + address + "</td>" +
 			"</tr>";
@@ -188,15 +199,30 @@
 
     function generateTable(result) {
     	let table = '<table class="table table-dark"><tbody>';
-    	table += generateRow('Picture', 'Owner', 'Address');
+    	table += generateRow('Picture', 'Owner', 'Origin');
     	let i = 0;
     	while(result[6][i] != 0) {
-    		table += generateRow('pic', hexToStr(result[6][i]), hexToStr(result[8][i]));
+    		table += generateRow(i, hexToStr(result[6][i]), hexToStr(result[10][i]));
     		i++;  
     	}
     	table += '</tbody><table>';
     	return table;
     }
+
+    function gen(key) {
+        var icon = blockies.create({ // All options are optional
+        seed: key, // seed used to generate icon data, default: random
+        color: '#00cc00', // to manually specify the icon color, default: random
+        bgcolor: '#ffcc00', // choose a different background color, default: random
+        // size: 15, // width/height of the icon in blocks, default: 8
+        // scale: 3, // width/height of each block in pixels, default: 4
+        spotcolor: '#000' // each pixel has a 13% chance of being of a third color,
+        // default: random. Set to -1 to disable it. These "spots" create structures
+        // that look like eyes, mouths and noses.
+        });
+        return icon; // icon is a canvas element
+    }
+
   </script>
 </body>
 </html>
