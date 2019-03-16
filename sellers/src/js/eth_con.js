@@ -154,7 +154,7 @@ function getInfo(id, callback) {
     if(!contract){
         return callback(undefined, localResult);
     }
-    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, callback());
+    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, callback);
 
     //    function(error, result) {
     //    if (error) { console.log('error'); }
