@@ -6,6 +6,9 @@
 	<title>Transfer Product</title>
 	<script src="./src/js/jsQR.js"></script>
 	<script src="./src/js/qrcode.min.js"></script>
+	<script src="./src/js/eth_con.js"></script>
+	<script src="./src/js/web3.js"></script>
+	<script src="./src/js/web3.min.js"></script>
 	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="./src/css/application.css">
 	<link rel="stylesheet" href="./src/css/style.css">
@@ -35,7 +38,7 @@
 								<h3> Transaction </h3>
 							</div>
 						</div>
-						<ul class="nav nav-tabs">
+						<ul id="navigator" class="nav nav-tabs">
 							<li class="active" v-on:click="scan=true;"><a data-toggle="tab">Scan QR</a></li>
 							<li v-on:click="scan=false;"><a data-toggle="tab">Text</a></li>
 						</ul>

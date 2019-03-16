@@ -35,8 +35,7 @@ new Vue({
 		},
 
 		transfer: function() {
-			composeJSON();
-			composeQR();
+			makeQrCode(null);
 			this.notSubmitted = false;
 		}
 
@@ -44,16 +43,29 @@ new Vue({
 
 })
 
-function composeJSON() {
+function composeJSON(prodId) {
 	let obj = {}
-	let productId = document.getElementById('productId').value;
+	if (prodId == null) {
+		let productId = document.getElementById('productId').value;
+		document.getElementById('text-entry').hidden = true;
+		prodId = productId;
+	}
 
-	obj['productId'] = productId;
+	document.getElementById('navigator').hidden = true;
+
+	obj['productId'] = prodId;
 	obj['transactionId'] = Math.floor(Math.random() * 256);
 
-	const passphrase = form[3].value;
+	let code = obj['productId'] + '.' + obj['transactionId'];
 
+	console.log(code);
+
+	makeQrCode(code);
+
+	document.getElementById('canvas').	hidden = true;
 	console.log(obj);
+
+	sellProduct(obj.productId, obj.transactionId);
 }
 
 function createComposeJSON() {
@@ -76,12 +88,12 @@ function createComposeJSON() {
 function makeQrCode(code) {
 	let div = document.getElementById('qrcode');
 	let text = document.getElementById('text-entry')
-	let qr = document.getElementById('qr');
+	let qr = document.getElementsByClassName('qr');
 
 	var qrcode = new QRCode("qrcode");
 
 	try {
-		qr.hidden = true;
+		qr[0].hidden = true;
 		text.hidden = true;
 	} catch (e) {
 
@@ -158,7 +170,7 @@ function tick() {
 			drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 			outputMessage.hidden = true;
 			canvasElement.hidden = true;
-			makeQrCode(code.data);
+			composeJSON(code.data);
 			return;
 		} else {
 			outputMessage.hidden = false;

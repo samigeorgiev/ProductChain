@@ -9,3 +9,7 @@ body {
 .form-group {
 	margin: 5% 2%;
 }
+
+#qrcode {
+	margin: 5% auto;
+}
