@@ -66,7 +66,6 @@ function getWeb3() {
 function createContractObj() {
 
     getWeb3();
-    console.log(window.web3);
 
     if(!window.web3){
         return undefined;
