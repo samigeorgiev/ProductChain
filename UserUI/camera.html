@@ -21,6 +21,8 @@
   <link href="./src/css/freelancer.min.css" rel="stylesheet">
 </head>
 <body style="background: #18bc9c">
+
+
   <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden></canvas>
   <div style="background-color: #18bc9c" id="output" hidden>
@@ -77,7 +79,7 @@
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var result = getInfo(123, function (error, result) {
+        var result = getInfo(1122, function (error, result) {
           if(error){
             console.error("error");
           }
