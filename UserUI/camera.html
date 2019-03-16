@@ -76,7 +76,17 @@
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var result = getInfo(123);
+        var result = getInfo(123, function (error, result) {
+          if(error){
+            console.error("error");
+          }
+          else{
+            printRes(result);
+          }
+        
+          // body...
+          // result 
+        });
         console.log(result);
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
@@ -86,10 +96,12 @@
         //code = 'something';
         
         //console.log(code.pName);
-        if (code) {
+        function printRes(result){
+          outputData.innerText = "Product Name: " + result[0] + '\n' + "Description: " + result[1] + '\n\n' + "Public Key: " + result[2] +'\n' + 'Producer: ' + result[3] +'\n'+ 'Origin: ' +result[4];
+        }
+        if (result) {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
-          outputData.innerText = "Product Name: " + result[0] + '\n' + "Description: " + result[1] + '\n\n' + "Public Key: " + result[2] +'\n' + 'Producer: ' + result[3] +'\n'+ 'Origin: ' +result[4];
           canvasElement.hidden = true;
           //outputData.hidden = true;
           return;
