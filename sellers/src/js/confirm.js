@@ -2,6 +2,7 @@ let root = new Vue({
 	el: '#form',
 	data: {
 		scan: true,
+		completed: false,
 		company: "Company Name",
 		company_default: "Company Name",
 		origin: "Origin",
@@ -25,6 +26,7 @@ let root = new Vue({
 		transfer: function() {
 			obj['company'] = document.getElementById('company').value;
 			obj['origin'] = document.getElementById('origin').value;
+			this.completed = true;
 			console.log(obj);
 			// Samkata's functions!
 		}
