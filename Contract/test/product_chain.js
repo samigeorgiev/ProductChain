@@ -31,7 +31,7 @@ contract('ProductChain', function(accounts) {
       return ProductChain.deployed().then(function(contract) {
           return contract.getInformation(1234);
       }).then(function(result) {
-          assert.isTrue(hexToStr(result[0] === 'SD Card\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000'));
+          assert.isTrue(result[5]);
       });
   });
 });
