@@ -9,12 +9,16 @@ new Vue({
 
 		productId: "Product ID",
 		productId_default: "Product ID",
+		productName: "Product Name",
+		productName_default: "Product Name",
 		passphrase: "Passphrase",
 		passphrase_default: "Passphrase",
 		company: "Company Name",
 		company_default: "Company Name",
-		origin: "Company Name",
-		origin_default: "Company Name",
+		origin: "Origin",
+		origin_default: "Origin",
+		description: "Description",
+		description_default: "Description",
 	},
 
 	methods: {
@@ -30,6 +34,12 @@ new Vue({
 		originFocus: function() {
 			this.origin = '';
 		},
+		productNameFocus: function() {
+			this.productName = '';
+		},
+		descriptionFocus: function() {
+			this.description = '';
+		},
 
 		companyFocusOut: function() {
 			this.company = this.company_default;
@@ -42,6 +52,12 @@ new Vue({
 		},
 		originFocusOut: function() {
 			this.origin = this.origin_default;
+		},
+		productNameFocusOut: function() {
+			this.productName = this.productName_default;
+		},
+		descriptionFocusOut: function() {
+			this.description = this.description_default;
 		},
 
 		transfer: function() {
