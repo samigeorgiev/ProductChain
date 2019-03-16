@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Confirmation</title>
-	</head>
-	<body>
-		<div id="qr" onload="qrCode()"></div>
-	</body>
+
+<head>
+	<meta charset="utf-8">
+	<title>Transfer Product</title>
+	<script src="./src/js/jsQR.js"></script>
+	<script src="./src/js/qrcode.min.js"></script>
+	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="./src/css/application.css">
+	<link rel="stylesheet" href="./src/css/style.css">
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container" style="margin-top:5%">
+
+		<div id="validation">
+
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-8 col-lg-6 pb-5">
+					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
+
+					<div id="form" class="card border-success">
+						<div class="card-header p-0">
+							<div class="bg-success text-white text-center py-2">
+								<h3> Transaction </h3>
+							</div>
+						</div>
+
+						<div id="text-entry" class="tab-pane fade in active" v-if="!scan">
+
+							<div class="form-group">
+								<div class="input-group mb-2">
+									<input id="company" type="text" class="form-control" :placeholder="company" v-on:focus="companyFocus" v-on:focusout="companyFocusOut" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="input-group mb-2">
+									<input id="origin" type="text" class="form-control" :placeholder="origin" v-on:focus="originFocus" v-on:focusout="originFocusOut" required>
+								</div>
+							</div>
+
+							<div class="text-center">
+								<input type="submit" value="Transfer" v-on:click="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
+							</div>
+						</div>
+						<div class="qr" class="tab-pane fade" v-if="scan">
+							<!-- QR camera -->
+							<canvas id="canvas" hidden></canvas>
+							<div id="output" hidden>
+								<div id="outputMessage">No QR code detected.</div>
+								<div id="transactionQR" hidden></div>
+							</div>
+
+						</div>
+						<div id="qrcode" hidden>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function fillForm() {
+
+		}
+	</script>
+	<script src="./src/js/main.js"></script>
+</body>
+
+<head>
+
+</head>
+
 </html>
