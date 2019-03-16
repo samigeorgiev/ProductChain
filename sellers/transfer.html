@@ -4,6 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Transfer Product</title>
+	<script src="./src/js/jsQR.js"></script>
+	<script src="./src/js/qrcode.min.js"></script>
 	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="./src/css/application.css">
 	<link rel="stylesheet" href="./src/css/style.css">
@@ -14,6 +16,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +40,7 @@
 							<li v-on:click="scan=false;"><a data-toggle="tab">Text</a></li>
 						</ul>
 
-						<div id="text-entry" v-if="!scan">
+						<div id="text-entry" class="tab-pane fade in active" v-if="!scan">
 
 							<div class="form-group">
 								<div class="input-group mb-2">
@@ -49,13 +52,16 @@
 								<input type="submit" value="Transfer" v-on:click="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
 							</div>
 						</div>
-						<div class="qr" v-if="scan">
+						<div class="qr" class="tab-pane fade" v-if="scan">
 							<!-- QR camera -->
 							<canvas id="canvas" hidden></canvas>
-						  <div id="output" hidden>
-						    <div id="outputMessage">No QR code detected.</div>
-						    <div id="transactionQR" hidden></div>
-						  </div>
+							<div id="output" hidden>
+								<div id="outputMessage">No QR code detected.</div>
+								<div id="transactionQR" hidden></div>
+							</div>
+
+						</div>
+						<div id="qrcode" hidden>
 
 						</div>
 
@@ -70,7 +76,6 @@
 </body>
 
 <head>
-	<script src="./src/js/jsQR.js"></script>
 
 </head>
 
