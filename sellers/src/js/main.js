@@ -69,6 +69,8 @@ function createComposeJSON() {
     obj['description'] = description;
 
 	console.log(obj);
+
+	return obj;
 }
 
 function makeQrCode(code) {
