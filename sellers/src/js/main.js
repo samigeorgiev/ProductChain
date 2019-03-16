@@ -23,6 +23,4 @@ function qrCode() {
 	makeCode();
 }
 
-function strToHex(str) {
-	return parseInt(str.replace(/^#/, ''), 16);
-}
+function strToHex(str) { return parseInt(str.replace(/^#/, ''), 16); }
