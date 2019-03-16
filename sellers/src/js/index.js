@@ -130,7 +130,7 @@ function makeQrCode(code) {
 
 
 	function makeCode() {
-		qrcode.makeCode(code);
+		qrcode.makeCode(code.toString());
 	}
 
 	makeCode();
