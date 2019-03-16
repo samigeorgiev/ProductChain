@@ -28,14 +28,28 @@
 #label{
 	height: 500px;
 	width:60%;
-	background-color: green;
+	background-color: #66cc00;
 	margin-left: 20%;
 	margin-right:20%;
 	margin-top: 20%;
-	margin-bottom: 20%;
+	margin-bottom: 40%;
 }
-#qrImg{
-	
+#cameraButton{
+	width: 100%;
+	height: 6%;
+	margin-top: 5%;
 }
+.imgwrapper {
+   width: 50%;
+   margin-left: 25%;
+   margin-top: 50%;
+}
+#msg{
+	font-size: 3vw;
+	text-align: center;
+	margin-top: 5%;
+
+}
+
 
 
