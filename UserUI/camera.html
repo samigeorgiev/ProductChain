@@ -191,7 +191,7 @@
     	table += generateRow('Picture', 'Owner', 'Address');
     	let i = 0;
     	while(result[6][i] != 0) {
-    		table += generateRow('pic', result[6][i], result[8][i]);
+    		table += generateRow('pic', hexToStr(result[6][i]), hexToStr(result[8][i]));
     		i++;  
     	}
     	table += '</tbody><table>';
