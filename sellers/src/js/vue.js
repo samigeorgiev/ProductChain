@@ -2,10 +2,16 @@ new Vue({
 	el: '#form',
 	data: {
 		seller: "Seller Company",
+		seller_default: "Seller Company",
+
 		buyer: "Buyer Company",
+		buyer_default: "Buyer Company",
+
 		productId: "Product ID",
+		productId_default: "Product ID",
+
 		passphrase: "Passphrase",
-		passphraseOnFocus: true
+		passphrase_default: "Passphrase",
 	},
 
 	methods: {
