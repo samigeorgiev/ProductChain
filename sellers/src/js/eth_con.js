@@ -16,10 +16,40 @@ function createContractObj() {
     return contract.at(ADDRESS);
 }
 
-function addProduct(params, id) {
+function makeQrCode(code) {
+    let div = document.getElementById('qrcode');
+    let text = document.getElementById('text-entry')
+    let qr = document.getElementById('qr');
+
+    var qrcode = new QRCode("qrcode");
+
+    try {
+        qr.hidden = true;
+        text.hidden = true;
+    } catch (e) {
+
+    } finally {
+
+        div.hidden = false;
+    }
+
+    function makeCode() {
+        qrcode.makeCode(code);
+    }
+
+    makeCode();
+}
+
+function addProduct() {
+
+    let id = Math.floor(Math.random() * 100000000) + 1;
+
+    console.log(id);
+
+    // let id = 123;
 
     let contract = createContractObj();
-    // let params = composeJSON();
+    let params = createComposeJSON();
 
     contract.addProduct.sendTransaction(params.company, params.origin, params.name, params.description, id, { from: web3.eth.coinbase }, function(error, result) {
         if (error) { console.log('error'); }
