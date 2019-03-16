@@ -1,4 +1,4 @@
-new Vue({
+let root = new Vue({
 	el: '#form',
 	data: {
 		notSubmitted: true,
@@ -93,7 +93,7 @@ function composeJSON(prodId) {
 	sellProduct(obj.productId, obj.transactionId);
 }
 
-function createComposeJSON() {
+function createComposeJSON(id) {
 	let obj = {}
 	let name = document.getElementById('name').value;
 	let company = document.getElementById('company').value;
@@ -107,6 +107,9 @@ function createComposeJSON() {
 
 	console.log(obj);
 
+	root.notSubmitted = false;
+	makeQrCode(id);
+
 	return obj;
 }
 
@@ -115,17 +118,16 @@ function makeQrCode(code) {
 	let text = document.getElementById('text-entry')
 	let qr = document.getElementsByClassName('qr');
 
-	var qrcode = new QRCode("qrcode");
+	div.hidden = false;
+	var qrcode = new QRCode(div);
 
 	try {
 		qr[0].hidden = true;
 		text.hidden = true;
 	} catch (e) {
 
-	} finally {
-
-		div.hidden = false;
 	}
+
 
 	function makeCode() {
 		qrcode.makeCode(code);
