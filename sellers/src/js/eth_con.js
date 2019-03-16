@@ -18,10 +18,11 @@ function createContractObj() {
 
 function addProduct() {
 
-    let id = Math.floor(Math.random() * 100000000) + 1;
+    // let id = Math.floor(Math.random() * 100000000) + 1;
+
+    let id = 123;
 
     // Funkciq na Marti
-    console.log('id='id);
 
     let contract = createContractObj();
     let params = createComposeJSON();
