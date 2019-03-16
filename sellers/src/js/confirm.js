@@ -28,7 +28,7 @@ let root = new Vue({
 			obj['origin'] = document.getElementById('origin').value;
 			this.completed = true;
 			console.log(obj);
-			// Samkata's functions!
+			buyProduct(obj);
 		}
 
 	}
