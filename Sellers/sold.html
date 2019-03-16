@@ -3,16 +3,13 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Transfer Product</title>
+	<title>Mark as Sold</title>
 	<script src="./src/js/jsQR.js"></script>
 	<script src="./src/js/qrcode.min.js"></script>
-	<script src="./src/js/eth_con.js"></script>
-	<script src="./src/js/web3.js"></script>
-	<script src="./src/js/web3.min.js"></script>
 	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="./src/css/application.css">
 	<link rel="stylesheet" href="./src/css/style.css">
-	<title>When product is bought</title>
+	<title>mark as Sold</title>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,19 +28,16 @@
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-8 col-lg-6 pb-5">
 					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
-
 					<div id="form" class="card border-success">
 						<div class="card-header p-0">
-                            
 							<div class="bg-success text-white text-center py-2">
 								<h3> Mark as Sold </h3>
 							</div>
 						</div>
 
-						<ul id="navigator" class="nav nav-tabs">
-							<li class="active" v-on:click="scan=true;"><a data-toggle="tab" href="./sellers/transfer.html">Scan QR</a></li>
-						</ul>
-
+						<div id="greet" class="tab-pane fade in active" v-if="!(scan || completed)">
+                            <h4 class="text-success">Congrats! You marked the product as Sold!</h4>
+						</div>
 						<div class="qr" class="tab-pane fade" v-if="scan">
 							<!-- QR camera -->
 							<canvas id="canvas" hidden></canvas>
@@ -58,12 +52,13 @@
 						</div>
 
 					</div>
+
 				</div>
 
 			</div>
 		</div>
 	</div>
-	<script src="./src/js/main.js"></script>
+	<script src="./src/js/sold.js"></script>
 </body>
 
 <head>
