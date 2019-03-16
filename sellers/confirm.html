@@ -28,7 +28,6 @@
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-8 col-lg-6 pb-5">
 					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
-
 					<div id="form" class="card border-success">
 						<div class="card-header p-0">
 							<div class="bg-success text-white text-center py-2">
@@ -36,7 +35,10 @@
 							</div>
 						</div>
 
-						<div id="text-entry" class="tab-pane fade in active" v-if="!scan">
+						<div id="greet" v-if="completed">
+							<h2 class="text-success">Congrats! You completed the transfer.</h2>
+						</div>
+						<div id="text-entry" class="tab-pane fade in active" v-if="!(scan || completed)">
 
 							<div class="form-group">
 								<div class="input-group mb-2">
@@ -68,21 +70,13 @@
 						</div>
 
 					</div>
+
 				</div>
 
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		function fillForm() {
-
-		}
-	</script>
-	<script src="./src/js/main.js"></script>
+	<script src="./src/js/confirm.js"></script>
 </body>
-
-<head>
-
-</head>
 
 </html>

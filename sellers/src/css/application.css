@@ -13,3 +13,7 @@ body {
 #qrcode {
 	margin: 5% auto;
 }
+
+#greet {
+	text-align: center;
+}
