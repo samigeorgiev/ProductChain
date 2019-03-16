@@ -76,7 +76,7 @@
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var result = getInfo(123, function (error, result) {
+        getInfo(123, function (error, result) {
           if(error){
             console.error("error");
           }
