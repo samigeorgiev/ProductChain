@@ -11,6 +11,10 @@ new Vue({
 		productId_default: "Product ID",
 		passphrase: "Passphrase",
 		passphrase_default: "Passphrase",
+		company: "Company Name",
+		company_default: "Company Name",
+		origin: "Company Name",
+		origin_default: "Company Name",
 	},
 
 	methods: {
@@ -23,6 +27,9 @@ new Vue({
 		passphraseFocus: function() {
 			this.passphrase = '';
 		},
+		originFocus: function() {
+			this.origin = '';
+		},
 
 		companyFocusOut: function() {
 			this.company = this.company_default;
@@ -32,6 +39,9 @@ new Vue({
 		},
 		passphraseFocusOut: function() {
 			this.passphrase = this.passphrase_default;
+		},
+		originFocusOut: function() {
+			this.origin = this.origin_default;
 		},
 
 		transfer: function() {
@@ -62,23 +72,23 @@ function composeJSON(prodId) {
 
 	makeQrCode(code);
 
-	document.getElementById('canvas').	hidden = true;
+	document.getElementById('canvas').hidden = true;
 	console.log(obj);
 
 	sellProduct(obj.productId, obj.transactionId);
 }
 
 function createComposeJSON() {
-    let obj = {}
+	let obj = {}
 	let name = document.getElementById('name').value;
-    let company = document.getElementById('seller').value;
-    let origin = document.getElementById('origin').value;
-    let description = document.getElementById('description').value;
+	let company = document.getElementById('seller').value;
+	let origin = document.getElementById('origin').value;
+	let description = document.getElementById('description').value;
 
 	obj['name'] = name;
-    obj['company'] = company;
-    obj['origin'] = origin;
-    obj['description'] = description;
+	obj['company'] = company;
+	obj['origin'] = origin;
+	obj['description'] = description;
 
 	console.log(obj);
 
@@ -111,14 +121,14 @@ function makeQrCode(code) {
 
 function strToHex(str) {
 	var hex = '';
-	for(var i=0;i<str.length;i++) {
-		hex += ''+str.charCodeAt(i).toString(16);
+	for (var i = 0; i < str.length; i++) {
+		hex += '' + str.charCodeAt(i).toString(16);
 	}
 	return hex;
 }
 
 function hexToStr(hex) {
-	hex  = hex.toString();
+	hex = hex.toString();
 	var str = '';
 	for (var n = 0; n < hex.length; n += 2) {
 		str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
@@ -144,7 +154,11 @@ function drawLine(begin, end, color) {
 }
 
 // Use facingMode: environment to attemt to get the front camera on phones
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+navigator.mediaDevices.getUserMedia({
+	video: {
+		facingMode: "environment"
+	}
+}).then(function(stream) {
 	video.srcObject = stream;
 	video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
 	video.play();
