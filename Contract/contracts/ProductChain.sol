@@ -20,6 +20,7 @@ contract ProductChain {
         bytes32 description;
         uint32 id;
         uint32 transactions_count;
+        bool isSold;
     }
 
     mapping (uint32 => Product) products;
@@ -75,7 +76,7 @@ contract ProductChain {
     }
 
     function getInformation(uint32 pr_id) public view
-        returns(bytes32 pr_name, bytes32 pr_descr, bytes32 producer, bytes32 origin, address p_key, bytes32[10] memory sell_names, bytes32[10] memory buy_names, address[10] memory sell_addr, address[10] memory buy_addr) {
+        returns(bytes32 pr_name, bytes32 pr_descr, bytes32 producer, bytes32 origin, address p_key, bytes32[10] memory sell_names, bytes32[10] memory buy_names, address[10] memory sell_addr, address[10] memory buy_addr, bool isSold) {
 
         Product storage pr = products[pr_id];
 
@@ -90,5 +91,13 @@ contract ProductChain {
             buy_names[i] = transactions[pr_id][i].buyer.name;
             buy_addr[i] = transactions[pr_id][i].buyer.p_key;
         }
+        isSold = pr.isSold;
+    }
+
+    function makeSale(uint32 pr_id) public {
+
+        require(msg.sender == transactions[pr_id][products[pr_id].transactions_count - 1].buyer.p_key);
+
+        products[pr_id].isSold = true;
     }
 }
