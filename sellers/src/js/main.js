@@ -2,7 +2,7 @@ function composeJSON() {
 	let obj = {}
 	let form = document.getElementById('form');
 	for (var i = 0; i < 3; i++) {
-		obj[form[i].id] = form[i].value;
+		obj[form[i].id] = strToHex(form[i].value);
 	}
 	console.log(form.length);
 	obj['transactionId'] = Math.floor(Math.random() * 256);
@@ -21,4 +21,8 @@ function qrCode() {
 	}
 
 	makeCode();
+}
+
+function strToHex(str) {
+	return parseInt(str.replace(/^#/, ''), 16);
 }
