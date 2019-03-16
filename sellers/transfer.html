@@ -6,6 +6,11 @@
 	<title>Transfer Product</title>
 	<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="./src/css/application.css">
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -18,35 +23,48 @@
 				<div class="col-12 col-md-8 col-lg-6 pb-5">
 					<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
 
-						<div id="form" class="card border-success">
-							<div class="card-header p-0">
-								<div class="bg-success text-white text-center py-2">
-									<h3> Transaction </h3>
-								</div>
-							</div>
-
-								<div class="form-group">
-									<div class="input-group mb-2">
-										<input id="productId" type="number" class="form-control" :placeholder="productId" v-on:focus="productFocus" v-on:focusout="productFocusOut" required>
-									</div>
-								</div>
-
-								<div class="text-center">
-									<input type="submit" value="Transfer" v-on:submit="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
-								</div>
-
+					<div id="form" class="card border-success">
+						<div class="card-header p-0">
+							<div class="bg-success text-white text-center py-2">
+								<h3> Transaction </h3>
 							</div>
 						</div>
+						<ul class="nav nav-tabs">
+							<li class="active" v-on:click="scan=false;"><a data-toggle="tab">Text</a></li>
+							<li v-on:click="scan=true;"><a data-toggle="tab">Scan QR</a></li>
+						</ul>
 
+						<div id="text-entry" v-if="!scan">
+
+							<div class="form-group">
+								<div class="input-group mb-2">
+									<input id="productId" type="number" class="form-control" :placeholder="productId" v-on:focus="productFocus" v-on:focusout="productFocusOut" required>
+								</div>
+							</div>
+
+							<div class="text-center">
+								<input type="submit" value="Transfer" v-on:submit="transfer" class="btn btn-success btn-block rounded-0 py-2" on>
+							</div>
+						</div>
+						<div class="qr">
+							<!-- QR camera -->
+							
+						</div>
+
+					</div>
 				</div>
+
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
 	<script src="./src/js/main.js"></script>
+	<script src="./src/js/jsQR.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 </html>
