@@ -140,7 +140,9 @@ function tick() {
 			//setTransfer(code.data);
             console.log(code.data);
             markSold();
+            makeSale(code.data);
 			return code.data;
+
 		} else {
 			outputMessage.hidden = false;
 		}
