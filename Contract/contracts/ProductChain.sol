@@ -76,7 +76,7 @@ contract ProductChain {
     }
 
     function getInformation(uint32 pr_id) public view
-        returns(bytes32 pr_name, bytes32 pr_descr, bytes32 producer, bytes32 origin, address p_key, bytes32[10] memory sell_names, bytes32[10] memory buy_names, address[10] memory sell_addr, address[10] memory buy_addr, bool isSold) {
+        returns(bytes32 pr_name, bytes32 pr_descr, bytes32 producer, bytes32 origin, address p_key, bytes32[10] memory sell_names, bytes32[10] memory buy_names, address[10] memory sell_addr, address[10] memory buy_addr, bool isSold, bytes32[10] memory buy_origins) {
 
         Product storage pr = products[pr_id];
 
@@ -90,6 +90,7 @@ contract ProductChain {
             sell_addr[i] = transactions[pr_id][i].seller.p_key;
             buy_names[i] = transactions[pr_id][i].buyer.name;
             buy_addr[i] = transactions[pr_id][i].buyer.p_key;
+            buy_origins[i] = transactions[pr_id][i].buyer.origin;
         }
         isSold = pr.isSold;
     }
