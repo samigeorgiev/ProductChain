@@ -55,6 +55,22 @@ function composeJSON() {
 	console.log(obj);
 }
 
+function createComposeJSON() {
+    let obj = {}
+	let name = document.getElementById('name').value;
+    let company = document.getElementById('seller').value;
+    let origin = document.getElementById('origin').value;
+    let description = document.getElementsById('description');
+
+	obj['name'] = name;
+    obj['company'] = company;
+    obj['origin'] = origin;
+    obj['description'] = description;
+	//const passphrase = form[3].value;
+
+	console.log(obj);
+}
+
 function qrCode() {
 	var qrcode = new QRCode("qrcode");
 
