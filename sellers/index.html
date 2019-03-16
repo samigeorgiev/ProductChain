@@ -30,7 +30,7 @@
 					<div class="col-12 col-md-8 col-lg-6 pb-5">
 						<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
 
-						<form id="form" onsubmit="createComposeJSON()">
+						<div id="form">
 							<div class="card border-success">
 								<div class="card-header p-0">
 									<div class="bg-success text-white text-center py-2">
@@ -41,26 +41,26 @@
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="name" type="text" class="form-control" placeholder="Product Name" v-model="name" required>
+											<input id="name" type="text" class="form-control" placeholder="Product Name" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="seller" type="text" class="form-control" placeholder="Company name" v-on:focus="sellerFocus" v-on:focusout="sellerFocus" v-model="company" required>
+											<input id="seller" type="text" class="form-control" placeholder="Company name" required>
 										</div>
 									</div>
 
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="origin" type="text" class="form-control" placeholder="Origin" v-on:focus="originFocus" v-on:focusout="originFocus" v-model="origin" required>
+											<input id="origin" type="text" class="form-control" placeholder="Origin" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="description" type="text" class="form-control" placeholder="Description" v-on:focus="descriptionFocus" v-on:focusout="descriptionFocus" v-model="origin" required>
+											<input id="description" type="text" class="form-control" placeholder="Description" required>
 										</div>
 									</div>
 
@@ -71,12 +71,12 @@
 									</div>-->
 
 									<div class="text-center">
-										<input type="submit" value="Create New Product" class="btn btn-success btn-block rounded-0 py-2" onclick="addProduct(1234)">
+										<input type="submit" value="Create New Product" class="btn btn-success btn-block rounded-0 py-2" onclick="createComposeJSON()">
 									</div>
 
 								</div>
 							</div>
-						</form>
+						</div>
 
 					</div>
 				</div>

@@ -4,8 +4,8 @@ new Vue({
 		notSubmitted: true,
 		scan: false,
 
-		company: "Company Name",
-		company_default: "Company Name",
+		//company: "Company Name",
+		//company_default: "Company Name",
 
 		productId: "Product ID",
 		productId_default: "Product ID",
@@ -38,7 +38,12 @@ new Vue({
 			composeJSON();
 			composeQR();
 			notSubmitted = false;
-		}
+		},
+
+        // create: function() {
+        //     createComposeJSON();
+        //     notSubmitted = false;
+        // }
 	}
 
 })
@@ -60,7 +65,7 @@ function createComposeJSON() {
 	let name = document.getElementById('name').value;
     let company = document.getElementById('seller').value;
     let origin = document.getElementById('origin').value;
-    let description = document.getElementsById('description');
+    let description = document.getElementById('description').value;
 
 	obj['name'] = name;
     obj['company'] = company;
