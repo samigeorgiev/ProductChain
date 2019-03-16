@@ -6,12 +6,11 @@
 		<title>Transfer Product</title>
 		<link href="./src/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<link rel="stylesheet" href="./src/css/application.css">
-		<script src="./src/js/vue.js"></script>
+		<!--<script src="./src/js/vue.js"></script>-->
 		<script src="./src/js/main.js"></script>
 		<script src="./src/js/web3.js"></script>
 		<script src="./src/js/web3.min.js"></script>
 		<script src="./src/js/eth_con.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
 	</head>
 
 	<body>
@@ -31,7 +30,7 @@
 					<div class="col-12 col-md-8 col-lg-6 pb-5">
 						<!-- <img id="logo" src="./src/images/logo.jpg" alt="logo"> -->
 
-						<form id="form" onsubmit="composeJSON()">
+						<form id="form" onsubmit="createComposeJSON()">
 							<div class="card border-success">
 								<div class="card-header p-0">
 									<div class="bg-success text-white text-center py-2">
@@ -42,34 +41,34 @@
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="name" type="text" class="form-control" placeholder="Name" v-model="name" required>
+											<input id="name" type="text" class="form-control" placeholder="Product Name" v-model="name" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="company" type="text" class="form-control" :placeholder="seller" v-on:focus="sellerFocus" v-on:focusout="sellerFocus" v-model="company" required>
+											<input id="seller" type="text" class="form-control" placeholder="Company name" v-on:focus="sellerFocus" v-on:focusout="sellerFocus" v-model="company" required>
 										</div>
 									</div>
 
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="origin" type="text" class="form-control" :placeholder="origin" v-on:focus="originFocus" v-on:focusout="originFocus" v-model="origin" required>
+											<input id="origin" type="text" class="form-control" placeholder="Origin" v-on:focus="originFocus" v-on:focusout="originFocus" v-model="origin" required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group mb-2">
-											<input id="description" type="text" class="form-control" :placeholder="description" v-on:focus="descriptionFocus" v-on:focusout="descriptionFocus" v-model="origin" required>
+											<input id="description" type="text" class="form-control" placeholder="Description" v-on:focus="descriptionFocus" v-on:focusout="descriptionFocus" v-model="origin" required>
 										</div>
 									</div>
 
-									<div class="form-group">
+									<!--<div class="form-group">
 										<div class="input-group mb-2">
 											<input id="passphrase" type="password" class="form-control" name="passphrase" :placeholder="passphrase" v-on:focus="passphraseFocus" v-on:focusout="passphraseFocus" required>
 										</div>
-									</div>
+									</div>-->
 
 									<div class="text-center">
 										<input type="submit" value="Create New Product" class="btn btn-success btn-block rounded-0 py-2" onclick="addProduct(1234)">
@@ -88,7 +87,7 @@
 
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
-	<script src="./src/js/vue.js"></script>
+	<!--<script src="./src/js/vue.js"></script>-->
 	<script src="./src/js/main.js"></script>
 </head>
 
