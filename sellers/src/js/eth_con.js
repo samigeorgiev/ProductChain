@@ -90,8 +90,10 @@ function getInfo(id) {
 
     let contract = createContractObj();
 
-    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, function(error, result) {
-        if (error) { console.log('error'); }
-        else { console.log(result); }
-    });
+    contract.getInformation.call(id, { from: web3.eth.coinbase }, web3.eth.defaultBlock, callback()); 
+
+    //    function(error, result) {
+    //    if (error) { console.log('error'); }
+    //    else { console.log(result); }
+    //});
 }
