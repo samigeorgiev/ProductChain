@@ -67,17 +67,29 @@ function createComposeJSON() {
     obj['company'] = company;
     obj['origin'] = origin;
     obj['description'] = description;
-	//const passphrase = form[3].value;
 
 	console.log(obj);
 }
 
-function makeQrCode() {
+function makeQrCode(code) {
+	let div = document.getElementById('qrcode');
+	let text = document.getElementById('text-entry')
+	let qr = document.getElementById('qr');
+
 	var qrcode = new QRCode("qrcode");
 
+	try {
+		qr.hidden = true;
+		text.hidden = true;
+	} catch (e) {
+
+	} finally {
+
+		div.hidden = false;
+	}
+
 	function makeCode() {
-		var url = null
-		qrcode.makeCode(url);
+		qrcode.makeCode(code);
 	}
 
 	makeCode();
@@ -143,13 +155,11 @@ function tick() {
 			drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
 			drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
 			outputMessage.hidden = true;
-			outputData.parentElement.hidden = false;
-			outputData.innerText = code.data;
 			canvasElement.hidden = true;
+			makeQrCode(code.data);
 			return;
 		} else {
 			outputMessage.hidden = false;
-			outputData.parentElement.hidden = true;
 		}
 	}
 	requestAnimationFrame(tick);
