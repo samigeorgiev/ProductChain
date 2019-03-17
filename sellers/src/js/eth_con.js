@@ -102,7 +102,7 @@ function makeQrCode(code) {
 
 function addProduct() {
 
-    let id = Math.floor(Math.random() * 1000) + 1;
+    let id = Math.floor(Math.random() * 1000000) + 1;
 
     console.log(id);
 
