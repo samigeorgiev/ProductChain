@@ -159,7 +159,7 @@
 
         if (code) {
         	console.log(code.data);
-        	getInfo(160, function (error, result) {
+        	getInfo(code.data, function (error, result) {
 			if(error){
 				console.error("error");
 			}
