@@ -158,13 +158,13 @@
       	}
 
         if (code) {
-        	console.log(code);
-        	console.log(result);
+        	console.log(code.data);
         	getInfo(160, function (error, result) {
 			if(error){
 				console.error("error");
 			}
 			else{
+				console.log(result);
 				printRes(result);
 			}
 		});
