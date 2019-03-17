@@ -79,7 +79,6 @@
   </div>
   <script>
 
-    	// console.log(generateRow('Picture', 'Owner', 'Address'));s
     var video = document.createElement("video");
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
@@ -120,18 +119,13 @@
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
-        //console.log(result);
-        
-        //code = 'something';
-        
-        //console.log(code.pName);
+               
         function printRes(result){
 
 
         	var generatedTable = generateTable(result);
 
         	outputDiv.innerHTML = generatedTable;
-        	//outputDiv.appendChild(gen('0x95c35036aaf96115c580b8a5c54ef51e47ee6fc3'));
 
         	var i = 0;
         	while(result[6][i] != 0) {
@@ -145,9 +139,6 @@
         	if(result[9] === true){
         		sold="Sold!";
         	}
-          
-         /* outputData.innerText = "Product Name: " + hexToStr(result[0]) + '\n' + "Description: " + hexToStr(result[1]) + '\n\n' + "Producer: " + hexToStr(result[2]) +'\n' + 'Origin: ' + hexToStr(result[3]) +'\n'+ 'Public Key: ' + result[4] + '\n' + 'Product status:' + sold; 
-        */
 
 	        productName.innerText = hexToStr(result[0]);
     	    productDesc.innerText = hexToStr(result[1]);
@@ -158,7 +149,6 @@
       	}
 
         if (code) {
-        	console.log(typeof(code.data));
         	getInfo(code.data, function (error, result) {
 			if(error){
 				console.error("error");
