@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.4.0 <0.6.0;
 
 contract ProductChain {
 
@@ -9,15 +9,15 @@ contract ProductChain {
     }
 
     struct Company {
-        string name;
-        string origin;
+        bytes32 name;
+        bytes32 origin;
         address addr;
     }
 
     struct Product {
         bool isExists;
-        string name;
-        string description;
+        bytes32 name;
+        bytes32 description;
         Company[] owners;
         ProductState state;
         uint txCode;
@@ -31,10 +31,10 @@ contract ProductChain {
 
     function createProduct(
         uint id,
-        string memory name,
-        string memory description,
-        string memory producer,
-        string memory origin
+        bytes32 name,
+        bytes32 description,
+        bytes32 producer,
+        bytes32 origin
     )
         public
     {
@@ -58,7 +58,7 @@ contract ProductChain {
         product.txCode = txCode;
     }
     
-    function buyProduct(uint productId, uint txCode, string memory buyer, string memory origin) public {
+    function buyProduct(uint productId, uint txCode, bytes32 buyer, bytes32 origin) public {
         Product storage product = products[productId];
         require(product.state == ProductState.PENDING_APPROVAL, "Product has owner or is sold");
         require(product.txCode == txCode, "Invalid tx Code");
@@ -80,12 +80,12 @@ contract ProductChain {
         public
         view
         returns (
-            string memory name,
-            string memory description,
+            bytes32 name,
+            bytes32 description,
             bool isSold,
-            string memory producerName,
+            bytes32 producerName,
             address producerAddr,
-            string memory origin
+            bytes32 origin
         )
     {
         Product storage product = products[id];
@@ -108,18 +108,10 @@ contract ProductChain {
         )
     {
             Company[] storage owners = products[id].owners;
-            for (uint i = 0; i < 5; i++) {
-                ownersNames[i] = string2bytes32(owners[i].name);
-                origins[i] = string2bytes32(owners[i].origin);
+            for (uint i = 0; i < owners.length && i < 5; i++) {
+                ownersNames[i] = owners[i].name;
+                origins[i] = owners[i].origin;
                 addresses[i] = owners[i].addr;
             }
     }
-    
-    function string2bytes32(string memory str) private returns (bytes32 memory res) {
-        bytes memory tmp = bytes(str);
-        for (uint i = 0; i < tmp.length; i++) {
-            res[i] = tmp[i];
-        }
-    }
-
 }
