@@ -28,6 +28,12 @@ contract ProductChain {
     constructor() public {
 
     }
+    
+    modifier onlyProductOwner(uint id) {
+        Product storage product = products[id];
+        require(product.owners[product.owners.length - 1].addr == msg.sender, "Sender is not owner");
+        _;
+    }
 
     function createProduct(
         uint id,
@@ -51,9 +57,8 @@ contract ProductChain {
         product.state = ProductState.WITH_OWNER;
     }
     
-    function sellProduct(uint productId, uint txCode) public {
+    function sellProduct(uint productId, uint txCode) public onlyProductOwner(productId) {
         Product storage product = products[productId];
-        require(product.owners[product.owners.length - 1].addr == msg.sender, "Sender is not owner");
         product.state = ProductState.PENDING_APPROVAL;
         product.txCode = txCode;
     }
@@ -70,13 +75,9 @@ contract ProductChain {
         product.state = ProductState.WITH_OWNER;
     }
     
-    function markAsSold(uint id) public {
-        Product storage product = products[id];
-        require(product.owners[product.owners.length - 1].addr == msg.sender, "Sender is not owner");
-        product.state = ProductState.SOLD;
-    }
+    function markAsSold(uint id) public onlyProductOwner(id) { products[id].state = ProductState.SOLD; }
 
-    function getProducerInfo(uint id)
+    function getProductBasicInfo(uint id)
         public
         view
         returns (
@@ -103,7 +104,7 @@ contract ProductChain {
         view
         returns (
             bytes32[5] memory ownersNames,
-            bytes32[5] memory origins,
+            bytes32[5] memory origins, // Cannot return dynamic array
             address[5] memory addresses
         )
     {
